@@ -53,9 +53,11 @@
     };
 
     if($voteInput) {
+
         $hotels = array_filter($hotels, function($hotel)use($voteInput){
             return $hotel['vote'] >= $voteInput;
         });
+
     }
 
 ?>
@@ -96,7 +98,7 @@
         <hr>
 
         <table class="table">
-            <thead>
+            <thead class='table-light'>
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
