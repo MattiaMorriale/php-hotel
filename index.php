@@ -61,24 +61,31 @@
     <div class="container">
         <h1 class='my-3 ' >Hotel</h1>
         <hr>
-        <ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance To Center</th>
+                </tr>
+            </thead>
+            <tbody>
             <?php 
                 foreach($hotels as $currentHotel) {
-                    echo "
-                    <li class='my-3'>
-                        <ul>";
-                            foreach($currentHotel as $key => $value) {
-                                echo "
-                                    <li>
-                                        $key: $value
-                                    </li>
-                                ";
-                            }
-                        echo "</ul>
-                    </li>";
+                    echo "<tr>";
+                        foreach($currentHotel as $value) {
+                            echo " 
+                            <td>
+                                $value
+                            </td> ";
+                        }                
+                    echo "</tr>";
                 }
-            ?>    
-        </ul>
+            ?>
+            </tbody>
+        </table>
     </div>
     
     <!-- script bootstrap -->
