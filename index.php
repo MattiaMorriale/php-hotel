@@ -1,5 +1,9 @@
 <?php
 
+    $parking = $_GET['parking'];
+
+    $vote = $_GET['vote'];
+
     $hotels = [
 
         [
@@ -40,6 +44,14 @@
 
     ];
 
+    if ($parking) {
+
+        $hotels = array_filter($hotels, function($hotel){
+            return $hotel['parking'];
+        });
+
+    };
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +72,23 @@
     
     <div class="container">
         <h1 class='my-3 ' >Hotel</h1>
+
         <hr>
+
+        <form>
+            <div class="mb-3">
+                <label for="vote" class="form-label">Filter by Vote</label>
+                <input type="number" name='vote' class="form-control" id="vote">
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-check-label" for="parking">Show for parking</label>
+                <input type="checkbox" class="form-check-input" id="parking" name='parking'>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <hr>
+
         <table class="table">
             <thead>
                 <tr>
@@ -72,18 +100,20 @@
                 </tr>
             </thead>
             <tbody>
-            <?php 
-                foreach($hotels as $currentHotel) {
-                    echo "<tr>";
-                        foreach($currentHotel as $value) {
-                            echo " 
-                            <td>
-                                $value
-                            </td> ";
-                        }                
-                    echo "</tr>";
-                }
-            ?>
+                <?php 
+                    foreach($hotels as $currentHotel) {
+
+                        echo "<tr>";
+                            foreach($currentHotel as $value) {
+                                echo " 
+                                <td>
+                                    $value
+                                </td> ";
+                            }                
+                        echo "</tr>";
+
+                    }
+                ?>
             </tbody>
         </table>
     </div>
