@@ -47,7 +47,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>php-hotel</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -55,7 +59,26 @@
 <body data-bs-theme='dark'>
     
     <div class="container">
-        <h1>ciao</h1>
+        <h1 class='my-3 ' >Hotel</h1>
+        <hr>
+        <ul>
+            <?php 
+                foreach($hotels as $currentHotel) {
+                    echo "
+                    <li class='my-3'>
+                        <ul>";
+                            foreach($currentHotel as $key => $value) {
+                                echo "
+                                    <li>
+                                        $key: $value
+                                    </li>
+                                ";
+                            }
+                        echo "</ul>
+                    </li>";
+                }
+            ?>    
+        </ul>
     </div>
     
     <!-- script bootstrap -->
