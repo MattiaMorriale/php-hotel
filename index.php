@@ -86,7 +86,7 @@
         <form>
             <div class="mb-3">
                 <label for="vote" class="form-label">Filter by Vote</label>
-                <input type="number" name='vote' class="form-control" id="vote">
+                <input type="number" name='vote' class="form-control" id="vote" min='1' max='5'>
             </div>
             <div class="mb-3 form-check">
                 <label class="form-check-label" for="parking">Show for parking</label>
