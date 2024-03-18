@@ -2,7 +2,7 @@
 
     $parking = $_GET['parking'];
 
-    $vote = $_GET['vote'];
+    $voteInput = $_GET['vote'];
 
     $hotels = [
 
@@ -51,6 +51,12 @@
         });
 
     };
+
+    if($voteInput) {
+        $hotels = array_filter($hotels, function($hotel)use($voteInput){
+            return $hotel['vote'] >= $voteInput;
+        });
+    }
 
 ?>
 
